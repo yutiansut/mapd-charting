@@ -41,7 +41,9 @@
     "selenium:start": "selenium-standalone start --version=3.0.0-beta4",
     "start": "npm run build:example && http-server -p 8081 -o -c-1",
     "test": "npm run lint && npm run test:unit",
-    "test:unit": "find ./src -name '*.spec.js' | NODE_PATH=./src xargs nyc mocha --opts ./test/mocha.unit.opts"
+    "test:unit": "find ./src -name '*.spec.js' | NODE_PATH=./src xargs nyc mocha --opts ./test/mocha.unit.opts",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "dependencies": {
     "@mapd/mapd-draw": "git://github.com/mapd/mapd-draw.git",
@@ -50,7 +52,8 @@
     "earcut": "^2.1.1",
     "moment": "2.19.3",
     "ramda": "0.21.0",
-    "simplify-js": "^1.2.1"
+    "simplify-js": "^1.2.1",
+    "snyk": "^1.88.2"
   },
   "devDependencies": {
     "@mapd/connector": "git://github.com/mapd/mapd-connector.git",
@@ -99,5 +102,6 @@
     "exclude": [
       "**/*.spec.js"
     ]
-  }
+  },
+  "snyk": true
 }
